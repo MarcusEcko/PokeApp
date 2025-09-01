@@ -48,19 +48,19 @@ function App() {
   }
 
   return(
-    <div>
-      <input type="text" onChange={handleChange} />
-      <button onClick={handleClick}>Buscar</button>
+    <div className="bg-dark d-flex justify-content-center align-items-center vh-100 w-100">
+      <div className="d-flex flex-column align-items-center text-center">
+        <input type="text" className="form-control mb-3" placeholder="Escribe un Pókemon" onChange={handleChange} />
+        <button className="btn btn-primary mb-3" onClick={handleClick}>Buscar</button>
 
-      <br/>
-      
-      {pokeData && (
-        <>
-          <img src={pokeData.sprites.front_default} alt={pokeData.name}/>
-          <p>{pokeData.types[0].type.name}</p>
-          <p>{pokeData.weight}</p>
-        </>
-      )}
+        {pokeData && (
+          <div className="text-white">
+            <img className="img-fluid mb-2" src={pokeData.sprites.front_default} alt={pokeData.name}/>
+            <p>Tipo: {pokeData.types[0].type.name}</p>
+            <p>Peso: {pokeData.weight}</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
